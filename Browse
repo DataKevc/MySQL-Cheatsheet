@@ -1,1 +1,12 @@
+SHOW DATABASE; 
+> Shows all the databases available in MySQL server
+
+CREATE DATABASE DATABASENAME; 
+> Creates a new database if it does not exist
+
+DROP DATABASE; 
+> To delete an existing database permanently
+
+USE DATABASENAME; 
+> Use a particular database or change from the current database to another
 
