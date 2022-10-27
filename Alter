@@ -1,0 +1,20 @@
+ALTER TABLE TABLENAME ADD COLUMNNAME DATATYPE;
+> Add a new column to an existing table
+
+ALTER TABLE TABLENAME DROP COLUMN COLUMNNAME;
+> Delete a new column to an existing table
+
+ALTER TABLE TABLENAME ALTER COLUMN COLUMNNAME DATATYPE;
+> Alter an existing column in an existing table
+
+RENAME TABLE OLD_TABLENAME TO NEW_TABLENAME;
+> Rename an existing table
+
+DROP TABLE TABLE_NAME;
+> Delete the entire table
+
+TRUNCATE TABLE TABLENAME;
+> Remove all records in the table
+
+DESCRIBE TABLE_NAME COLUMNNAME;
+> Display values in a column
