@@ -1,5 +1,5 @@
-SHOW DATABASE; 
-> Shows all the databases available in MySQL server
+``` SHOW DATABASE; 
+> Shows all the databases available in MySQL server ```
 
 CREATE DATABASE DATABASENAME; 
 > Creates a new database if it does not exist
