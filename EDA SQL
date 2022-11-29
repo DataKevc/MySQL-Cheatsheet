@@ -1,0 +1,66 @@
+# This is a file containing common syntaxs and methods to use when conducting exploratory data analysis(EDA)
+
+#1 We have several tables to work with from our datasource like  'tb_order' and 'tb_user', we'll now write some codes to quickly get details about the data.
+
+Select * From tb_order limit 5
+
+# This line will give you the first 5 rows from the 'tb_order' table; you can also manipulate the order and sorting using 'Order by' or 'Desc'
+if you know how the data was structured.
+# Tables have a primary key as the unique identifier for each record in that table, you can start working with the primary key if you are unfamiliar
+with the dataset you have.
+
+#2 I want to know how many users are there in our database, and I know it's stored in the 'tb_user' table
+
+Select
+Count(u.id)
+From 
+tb_user u
+
+# This syntax will give you the number of 'id's in the tb_user table, which was named 'u' after chosen with 'From'; However, sometimes we have
+duplicate number/variable in the table. In this case we need to use the 'Distinct' function.
+
+Select
+Count(Distinct u.name)
+From
+tb_user u
+
+# By using the 'Distinct' funciton we counted the number of distinct names in the table
+
+#3 Often times we need to calculate different kinds of data on our plate, in those cases we might need to use the 'Aggregation' functions or 
+'Extrem value indentification' functions to help get the answer that we need
+
+Select
+Sum(o.order_amount) as Total Order Amount
+From tb_order o
+
+# Here we'll get the aggregated amount of all the order_amount in the 'tb_order' table, we can also use the 'Avg' funciton to get the average of 
+our data.
+
+# In addition, We can find the extrem of our data using the'Max' and 'Min' function, like the example showed below
+
+Select
+Max(o.order_amount)
+From tb_order o
+
+#4 What if we need to find data within a specific period of time? In that case we should probably start with fomatting the date/time data and proceed 
+to specify the range we want. In this case, our date/time is stored as unix timestamp.
+
+Select
+o.id as order_id,
+u.name as user_name,
+FROM_UNIXTIME( o.create_time, "%Y%m%d" ) as order_date
+
+From
+tb_order o
+left join tb_user u on o.user_id = u.id
+
+where
+FROM_UNIXTIME( o.create_time, "%Y%m%d" ) BETWEEN 20221001 AND 20221031
+
+# First, we formatted the time to %Y%m%d format like '20221231' using 'From_Unixtime', this can be switched to other formats to meet your needs. Second, we set the condition
+to a range using 'between' and fill it with the desired format '%Y%m%d'. We can also format numbers using the 'Format' function.
+
+
+
+
+
